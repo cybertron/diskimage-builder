@@ -14,4 +14,11 @@ depends() {
 install() {
     inst_hook cmdline 80 "$moddir/deploy-cmdline.sh"
     inst_hook pre-mount 50 "$moddir/init.sh"
+    $moddir/python-deps /bin/targetcli | while read dep; do
+        case "$dep" in
+            *.so) inst_library $dep ;;
+            *.py) inst_simple $dep ;;
+            *) inst $dep ;;
+        esac
+    done
 }

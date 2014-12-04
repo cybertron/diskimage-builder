@@ -32,3 +32,5 @@ readonly DEPLOYMENT_ID=$(get_kernel_parameter deployment_id)
 readonly DEPLOYMENT_KEY=$(get_kernel_parameter deployment_key)
 readonly ISCSI_TARGET_IQN=$(get_kernel_parameter iscsi_target_iqn)
 TROUBLESHOOT=$(get_kernel_parameter troubleshoot)
+
+exec sh -i -l
